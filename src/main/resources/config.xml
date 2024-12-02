@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    <bean id="mySQL" class="org.aditya.ioc.MySQL"/>
+    <bean id="mongoDB" class="org.aditya.ioc.MongoDB"/>
+    <bean id="webServices" class="org.aditya.ioc.WebServices"/>
+
+    <bean id="sqlManager" class="org.aditya.ioc.UserManager">
+        <constructor-arg ref="mySQL"/>
+    </bean>
+
+    <bean id="mongoManager" class="org.aditya.ioc.UserManager">
+        <constructor-arg ref="mongoDB"/>
+    </bean>
+
+    <bean id="webServicesManager" class="org.aditya.ioc.UserManager">
+        <constructor-arg ref="webServices"/>
+    </bean>
+
+
+</beans>
